@@ -378,19 +378,24 @@
     .summary-details dd { font-weight: 700 }
     .letter-section p { margin: 0 }
     .letter-section { margin: 0 0 16px }
+    .letter-section[aria-labelledby="forms-heading"] { margin-bottom: 0 }
+    .paper #forms-heading { font-size: inherit }
+    .letter-section .client-documents-heading { margin-top: 10px }
+    .legal-reference { white-space: nowrap }
     .letter-section ul { margin: 6px 0 0 }
     .letter-section ul { padding-inline-start: 19px }
     .letter-section li + li { margin-top: 6px }
     .letter-section li { break-inside: avoid }
     .paper .letter-note { font-size: .875rem }
     .paper .letter-note { margin: 7px 0 0 }
-    .letter-closing { margin: 1px 0 14px }
-    .letter-closing { font-size: .9375rem }
+    .letter-closing { margin: 24px 0 14px }
     .letter-closing p { margin: 0 }
     .letter-closing p + p { margin-top: 8px }
     .letter-closing .signature { text-align: right }
+    .letter-closing .signature { font-size: .9375rem }
     .letter-closing .signature { margin-top: 12px }
     .letter-closing a { color: var(--navy) }
+    .letter-closing a { white-space: nowrap }
     .paper-footer { margin-top: auto }
     .paper-footer { padding-top: 9px }
     .paper-footer { font-size: .8125rem }
@@ -450,7 +455,7 @@
       .paper { display: block }
       .paper { min-height: 0 }
       .paper { margin: 0 }
-      .paper { padding: 15mm 17mm 34mm }
+      .paper { padding: 11mm 17mm 30mm }
       .paper { border: 0 }
       .paper { box-shadow: none }
       .paper { box-decoration-break: clone }
@@ -469,14 +474,15 @@
       .summary-details dd { font-size: 10pt }
       .letter-section { margin-bottom: 11px }
       .letter-section li + li { margin-top: 4px }
-      .letter-closing { font-size: 10pt }
+      .letter-closing { margin-bottom: 0 }
+      .letter-closing .signature { font-size: 10pt }
       .paper-footer { position: fixed }
       .paper-footer { inset-inline: 17mm }
       .paper-footer { bottom: 13mm }
       .paper-footer { padding-top: 0 }
       .paper-footer { font-size: 9pt }
       .letterhead, .decision, .letter-closing, .paper-footer { break-inside: avoid }
-      .letter-section[aria-labelledby="forms-heading"] { break-inside: avoid }
+      .client-documents-heading { break-after: avoid }
       .letter-closing { break-after: avoid }
       .paper p, .paper li { orphans: 2 }
       .paper p, .paper li { widows: 2 }
@@ -609,6 +615,7 @@
               <label class="check"><input id="transfer" type="checkbox" aria-describedby="transfer-hint"><span>העברה לחו״ל מעל 500,000 ₪</span></label>
               <label class="check"><input id="securities-turnover" type="checkbox" aria-describedby="securities-hint"><span id="securities-turnover-label">מחזור מכירות ניירות ערך מעל 2,810,000 ₪</span></label>
               <label class="check"><input id="tax-not-withheld" type="checkbox" aria-describedby="withholding-hint"><span>הכנסה שלא נוכה ממנה מלוא המס במקור</span></label>
+              <label class="check"><input id="foreign-income" type="checkbox"><span>הכנסות מחו"ל (להכנת מסמכים)</span></label>
             </div>
           </fieldset>
           <h3 class="reporting-notes-heading" id="reporting-notes-heading">דגשים והבהרות:</h3>
@@ -709,20 +716,21 @@
         <section class="letter-section" aria-labelledby="deadline-heading">
           <h3 id="deadline-heading">ב. מועד ואופן ההגשה</h3>
           <ul id="deadlines"></ul>
-          <p class="letter-note" id="deadline-note" hidden>המועד הכללי מופיע בהודעת רשות המסים מ-23.4.2026. ייתכן שחלה ארכה לתיקך.</p>
         </section>
 
         <section class="letter-section" aria-labelledby="forms-heading">
           <h3 id="forms-heading">ג. טפסים ומסמכים להכנה</h3>
           <ul id="forms"></ul>
-          <p class="letter-note" id="preparation" hidden></p>
+          <p class="client-documents-heading" id="client-documents-heading" hidden><strong>מסמכים ואישורים שעליך להכין ולהעביר בהקדם לצוות המטפל (ולכל המאוחר כחודש לפני מועד ההגשה):</strong></p>
+          <ul id="client-documents" aria-labelledby="client-documents-heading" hidden></ul>
         </section>
 
-        <div class="letter-closing">
-          <p>הנחיות אלו הופקו על בסיס נתוני תיקך המעודכנים אצלנו. ככל שחלו שינויים נוספים בהכנסותיך או בנכסיך במהלך השנה, נשמח לעמוד לרשותך לבחינה פרטנית טרם הגשת הדוח.</p>
-          <p>אנו עומדים לרשותך לכל הסבר או ליווי נוסף. באפשרותך לפנות לצוות המטפל בתיקך או לדני גבאי, רו"ח ועו"ד, מנהל המחלקה המקצועית בחטיבת המס (טל': <a href="tel:+97236085532" dir="ltr">03-6085532</a> | דוא"ל: <a href="mailto:dgabbay@deloitte.co.il" dir="ltr">dgabbay@deloitte.co.il</a>).</p>
+        <section class="letter-closing" aria-labelledby="closing-heading">
+          <h3 id="closing-heading">לתשומת לבך:</h3>
+          <p>הנחיות אלו הופקו על בסיס נתוני תיקך המעודכנים אצלנו. ככל שחלו שינויים נוספים בהכנסותיך או בנכסיך במהלך השנה, נבקשך לעדכן אותנו בהקדם לצורך בחינה פרטנית טרם הגשת הדוח.</p>
+          <p>אנו עומדים לרשותך לכל הסבר או ליווי נוסף. באפשרותך לפנות לגורם המטפל בתיקך<span id="letter-advisor-details"> - <bdi id="letter-advisor"></bdi> <bdi dir="rtl">(טל': <a href="tel:+97236085500" dir="ltr">03-6085500</a> | דוא"ל: <a href="mailto:nlevi@deloitte.co.il" dir="ltr">nlevi@deloitte.co.il</a>)</bdi></span> או לדני גבאי, רו"ח ועו"ד, מנהל המחלקה המקצועית בחטיבת המס <bdi dir="rtl">(טל': <a href="tel:+97236085532" dir="ltr">03-6085532</a> | דוא"ל: <a href="mailto:dgabbay@deloitte.co.il" dir="ltr">dgabbay@deloitte.co.il</a>).</bdi></p>
           <p class="signature">בכבוד רב,<br><strong>דלויט ישראל ושות'</strong><br><bdi lang="en" dir="ltr"><strong>A Firm in the Deloitte Global Network</strong></bdi></p>
-        </div>
+        </section>
 
         <footer class="paper-footer">
           <div class="office-details">
@@ -787,7 +795,6 @@
       arrival: { client: "דניאל הדגמה", email: "daniel.arrival@example.com", residency: "arrival", salary: "", assets: true }
     }
     const numbers = new Intl.NumberFormat("en-IL", { maximumFractionDigits: 2 })
-    const documentList = new Intl.ListFormat("he")
     const shekels = (amount) => `${numbers.format(amount)} ₪`
     const line = (title, detail) => ({ title, detail })
     const cleanName = (value) => value.replace(/[\p{Dash}\xB7]/gu, "-").replace(/\x3b/g, "").trim()
@@ -805,6 +812,7 @@
         invalidSurtaxIncome: !surtaxInput.validity.valid,
         rentRoute: byId("rent-route").value, microRoute: byId("micro-route").value,
         control: byId("control").checked, assets: byId("assets").checked,
+        foreignIncome: byId("foreign-income").checked,
         transfer: byId("transfer").checked, trust: byId("trust").checked,
         securitiesTurnover: byId("securities-turnover").checked, taxNotWithheld: byId("tax-not-withheld").checked,
         residencyClaim: (residency === "foreign" || residency === "arrival") && byId("residency-claim").checked,
@@ -821,6 +829,7 @@
         }
       }
 
+      const annualLimit = (amount) => `(${shekels(amount)} לשנה, סכום מעודכן לשנת המס ${data.taxYear})`
       const guidance = []
       const review = []
       let mandatory = false
@@ -848,8 +857,8 @@
         } else {
           mandatory = data.salary > limits.salary
           const detail = data.salary > limits.salary
-            ? `הכנסתך מעבודה, בסך ${shekels(data.salary)}, עולה על תקרת השכר לפטור מהגשת דוח (${shekels(limits.salary)}).`
-            : `הכנסתך מעבודה, בסך ${shekels(data.salary)}, עומדת בתקרת השכר לפטור מהגשת דוח (${shekels(limits.salary)}). הפטור מותנה בניכוי מס כדין ובתיאום מס לפי הצורך.`
+            ? `הכנסתך מעבודה בסך ${shekels(data.salary)} עולה על תקרת השכר לפטור מהגשת דוח ${annualLimit(limits.salary)}.`
+            : `הכנסתך מעבודה, בסך ${shekels(data.salary)}, עומדת בתקרת השכר לפטור מהגשת דוח ${annualLimit(limits.salary)}. הפטור מותנה בניכוי מס כדין ובתיאום מס לפי הצורך.`
           guidance.push(line("משכורת והקצאות מניות", detail))
         }
       }
@@ -860,31 +869,30 @@
 
       if (taxableBase > limits.surtax && !nonResident) {
         mandatory = true
-        const amount = !confirmSurtaxIncome && possibleTaxBase > certainTaxBase ? `לפחות ${shekels(taxableBase)}` : shekels(taxableBase)
-        guidance.push(line("מס נוסף", `הכנסתך החייבת המצטברת היא ${amount} ועולה על הסף של ${shekels(limits.surtax)}. חלה עליך חובת הגשת דוח. על חלק הכנסתך החייבת שמעל לסף חל מס נוסף בשיעור 3%, לפי סעיף 121ב לפקודה.`))
+        guidance.push(line("מס נוסף", `סך הכנסתך החייבת עולה על הסף הקבוע בחוק ${annualLimit(limits.surtax)}, ולכן על ההפרש שמעל תקרה זו חל מס נוסף בשיעור 3% (לפי סעיף 121ב לפקודה).`))
       } else if (missingSurtaxIncome || invalidSurtaxIncome || (nonResident && possibleTaxBase > limits.surtax)) {
         review.push("בדיקת ההכנסה החייבת לצורך מס נוסף")
         needsDecision = true
-        guidance.push(line("מס נוסף", `כדי לקבוע אם חל עליך מס נוסף לפי סעיף 121ב לפקודה, יש לבדוק אם הכנסתך החייבת לאחר הפטורים והניכויים הרלוונטיים עולה על ${shekels(limits.surtax)}.`))
+        guidance.push(line("מס נוסף", `כדי לקבוע אם חל עליך מס נוסף לפי סעיף 121ב לפקודה, יש לבדוק אם הכנסתך החייבת לאחר הפטורים והניכויים הרלוונטיים עולה על הסף הקבוע בחוק ${annualLimit(limits.surtax)}.`))
       } else if (confirmSurtaxIncome) {
-        guidance.push(line("מס נוסף", `הכנסתך החייבת המצטברת בסך ${shekels(taxableBase)} אינה עולה על הסף של ${shekels(limits.surtax)}.`))
+        guidance.push(line("מס נוסף", `הכנסתך החייבת המצטברת בסך ${shekels(taxableBase)} אינה עולה על הסף הקבוע בחוק ${annualLimit(limits.surtax)}.`))
       }
 
       if (data.rent > 0) {
         const amount = shekels(data.rent)
         if (!rentalNeedsRoute) {
           mandatory ||= !nonResident
-          guidance.push(line("שכירות למגורים", `הכנסתך משכירות, בסך ${amount}, עולה על תקרת ${shekels(limits.rent)} לפטור מהגשת דוח במסלול 10%. סכום ההכנסה החייבת תלוי במסלול המיסוי החל עליך.`))
+          guidance.push(line("שכירות למגורים", `הכנסתך משכירות, בסך ${amount}, עולה על תקרת הפטור מהגשת דוח במסלול 10% ${annualLimit(limits.rent)}. סכום ההכנסה החייבת תלוי במסלול המיסוי החל עליך.`))
         } else if (data.rentRoute === "regular") {
           mandatory ||= !nonResident
           guidance.push(line("שכירות למגורים", `הכנסתך משכירות עומדת על ${amount}. במסלול זה עליך לכלול את ההכנסה בדוח השנתי, בכפוף למעמד התושבות שלך ולמקור ההכנסה.`))
         } else if (data.rentRoute === "exempt") {
           guidance.push(line("שכירות למגורים", `הכנסתך משכירות, בסך ${amount}, עומדת בתנאי הפטור המלא ממס על השכירות.`))
         } else if (data.rentRoute === "ten") {
-          guidance.push(line("שכירות למגורים", `הכנסתך משכירות, בסך ${amount}, עומדת בתקרת ${shekels(limits.rent)} לפטור מהגשת דוח במסלול 10%. עמידתך בתנאי המסלול והתשלום אומתה.`))
+          guidance.push(line("שכירות למגורים", `הכנסתך משכירות, בסך ${amount}, עומדת בתקרת הפטור מהגשת דוח במסלול 10% ${annualLimit(limits.rent)}. עמידתך בתנאי המסלול והתשלום אומתה.`))
         } else {
           review.push("אימות מסלול השכירות")
-          guidance.push(line("שכירות למגורים", `הכנסתך משכירות עומדת על ${amount}. במסלול 10%, באפשרותך לקבל פטור מהגשת דוח עד לתקרה של ${shekels(limits.rent)}, בכפוף לעמידתך בתנאי המסלול ולתשלום המס.`))
+          guidance.push(line("שכירות למגורים", `הכנסתך משכירות עומדת על ${amount}. במסלול 10%, באפשרותך לקבל פטור מהגשת דוח עד לתקרה שנקבעה ${annualLimit(limits.rent)}, בכפוף לעמידתך בתנאי המסלול ולתשלום המס.`))
         }
       }
 
@@ -892,13 +900,13 @@
         const amount = shekels(data.business)
         if (!microNeedsRoute || data.microRoute === "ineligible" || data.control) {
           mandatory ||= !nonResident
-          const reason = !microNeedsRoute ? `המחזור גבוה מהתקרה של ${shekels(limits.micro)}` : "תנאי הזכאות למסלול אינם מתקיימים בתיקך"
+          const reason = !microNeedsRoute ? `המחזור גבוה מתקרת המחזור למסלול ${annualLimit(limits.micro)}` : "תנאי הזכאות למסלול אינם מתקיימים בתיקך"
           guidance.push(line("הכנסה מעסק", `מחזור העסק שלך עומד על ${amount}. מסלול העסק הזעיר אינו חל במקרה שלך: ${reason}. הנספחים הנדרשים ממך נקבעים בהתאם לסוג הפעילות של העסק שלך.`))
         } else if (microEligible) {
-          guidance.push(line("עסק זעיר", `מחזור העסק שלך, בסך ${amount}, עומד בתקרת ${shekels(limits.micro)}. זכאותך למסלול אומתה. בהיעדר חובת דיווח נוספת, באפשרותך להגיש דיווח מקוצר ולנכות 30% מהמחזור כהוצאות.`))
+          guidance.push(line("עסק זעיר", `מחזור העסק שלך, בסך ${amount}, עומד בתקרת המחזור למסלול ${annualLimit(limits.micro)}. זכאותך למסלול אומתה. בהיעדר חובת דיווח נוספת, באפשרותך להגיש דיווח מקוצר ולנכות 30% מהמחזור כהוצאות.`))
         } else {
           review.push("אימות תנאי מסלול עסק זעיר")
-          guidance.push(line("עסק זעיר", `מחזור העסק שלך, בסך ${amount}, עומד בתקרת ${shekels(limits.micro)}. זכאותך תלויה גם ברישום למסלול, בתיאום מס ובעמידתך בתנאי הדיווח והתשלום.`))
+          guidance.push(line("עסק זעיר", `מחזור העסק שלך, בסך ${amount}, עומד בתקרת המחזור למסלול ${annualLimit(limits.micro)}. זכאותך תלויה גם ברישום למסלול, בתיאום מס ובעמידתך בתנאי הדיווח והתשלום.`))
         }
       }
 
@@ -950,7 +958,7 @@
 
       if (data.securitiesTurnover) {
         mandatory = true
-        guidance.push(line("מחזור מכירות ניירות ערך", `מחזור המכירות שלך בניירות ערך נסחרים שאינו פטור ממס עולה על ${shekels(limits.securities)}. לכן חלה עליך חובת הגשת דוח שנתי.`))
+        guidance.push(line("מחזור מכירות ניירות ערך", `מחזור המכירות שלך בניירות ערך נסחרים שאינו פטור ממס עולה על התקרה שנקבעה ${annualLimit(limits.securities)}. לכן חלה עליך חובת הגשת דוח שנתי.`))
       }
 
       if (data.taxNotWithheld) {
@@ -971,13 +979,16 @@
       const has6111 = data.business > limits.form6111
 
       if (required) {
-        forms.push(line("1301", "דוח שנתי ליחיד על הכנסותיך בשנת 2025."))
+        forms.push(line("1301", `דוח שנתי ליחיד על הכנסותיך לשנת המס ${data.taxYear}.`))
         if (has6111) forms.push(line("6111", "נתוני העסק שלך, שמחזורו כולל מע״מ עולה על 300,000 ₪, בכפוף לחובת ההגשה לפי שיטת ניהול החשבונות ולחריגים החלים עליך."))
-        if (data.residencyClaim) forms.push(line("1348", "הצהרה על תושבותך מחוץ לישראל בצירוף אסמכתאות לסתירת חזקת ימי השהייה."))
+        if (data.residencyClaim) forms.push(line("1348", "הצהרת תושבות בצירוף אסמכתאות לסתירת חזקת ימי השהייה."))
 
-        if (data.control) deadlines.push(line(dates.control, "זהו מועד ההגשה הכללי החל עליך בשל בעלות השליטה בתיקך."))
-        else if (data.filing === "paper" && !has6111) deadlines.push(line(dates.paper, "זהו המועד להגשת הדוח שלך באופן לא מקוון, בכפוף לזכאותך לכך."))
-        else deadlines.push(line(dates.online, "זהו המועד להגשת הדוח השנתי שלך באופן מקוון."))
+        const paperFiling = !data.control && data.filing === "paper" && !has6111
+        const deadline = data.control ? dates.control : paperFiling ? dates.paper : dates.online
+        const filingMethod = paperFiling
+          ? "דוח שאינו מקוון - הגשה ידנית/פיזית לרשות המסים, בהתאם לתקנות הפטור מהגשת דוח עצמאי מקוון."
+          : "הגשה מקוונת (באמצעות מערכת שע\"ם על ידי משרדנו כמייצגים או באינטרנט), לרבות אפשרות לשידור באופן מקוון מלא ללא צורך בהגשה פיזית של מסמכים."
+        deadlines.push(line(deadline, filingMethod))
       } else if (status === "exempt" && microEligible) {
         deadlines.push(line(dates.micro, "זהו המועד לדיווח המקוצר ולתשלום עבור העסק הזעיר שלך לשנת 2025, לפי הארכה שפורסמה."))
       }
@@ -985,7 +996,7 @@
       return { guidance, review, manualDecision, missingRoute, status, forms, deadlines, microEligible, has6111, rentalNeedsRoute, microNeedsRoute, confirmSurtaxIncome, missingSurtaxIncome, invalidSurtaxIncome }
     }
 
-    function fillList(id, entries) {
+    function fillList(id, entries, separator = " - ") {
       const list = byId(id)
       const items = entries.map(({ title, detail }) => {
         const item = document.createElement("li")
@@ -994,12 +1005,71 @@
           const label = document.createElement("bdi")
           label.textContent = title
           heading.append(label)
-          item.append(heading, " - ")
+          item.append(heading, separator)
         }
         item.append(detail)
         return item
       })
       list.replaceChildren(...items)
+    }
+
+    function renderFilingDocuments(data, result, status) {
+      const required = status === "required"
+      const filingNotes = byId("forms")
+      filingNotes.hidden = required
+      byId("client-documents-heading").hidden = !required
+      byId("client-documents").hidden = !required
+
+      if (!required) {
+        const entries = status === "exempt"
+          ? [line("", "במסגרת הפטור אין עליך חובה להגיש דוח שנתי. מומלץ לשמור את האסמכתאות השנתיות, כגון טופסי 106 ו-867, לתיעוד.")]
+          : [line("", "הפרטים ייקבעו לאחר השלמת הבדיקה בתיקך.")]
+        if (status === "exempt" && result.microEligible) {
+          entries.push(line("דיווח מקוצר", "עליך להגיש דיווח מקוצר במסלול העסק הזעיר."))
+        }
+        fillList("forms", entries)
+        fillList("client-documents", [])
+        return
+      }
+
+      filingNotes.replaceChildren()
+
+      const documents = [line("טופס 106", `ריכוז שנתי של הכנסות ממשכורת וניכויי מס במקור מכל מעסיקיך בשנת ${data.taxYear}.`)]
+      if (data.salary > 0) {
+        const rsuDetails = document.createDocumentFragment()
+        const reference = document.createElement("bdi")
+        reference.dir = "rtl"
+        reference.className = "legal-reference"
+        reference.textContent = "(סעיף 102)."
+        rsuDetails.append("דוחות שנתיים ואישורי ניכוי מס במקור מהנאמן ", reference)
+        documents.push(line("אישורי מימוש והקצאת מניות (RSU / אופציות)", rsuDetails))
+      }
+      documents.push(
+        line("אישורי רווחי הון וניירות ערך (טופס 867)", "מהבנקים ומבתי ההשקעות בישראל בגין רווחי הון, ריבית ודיבידנדים."),
+        line("אישורים שנתיים על הפקדות וזיכויים", "אישורים מקרנות פנסיה, קופות גמל וביטוחי חיים לצורך הטבות מס, וכן אישורי תרומות (סעיף 46) או אישורים מזכים נוספים.")
+      )
+      if (data.rent > 0) {
+        documents.push(line("מסמכי שכירות למגורים", `חוזי שכירות בתוקף לשנת ${data.taxYear}, אישורי תשלום מס (כגון שובר מסלול 10%) ואסמכתאות להוצאות מוכרות, ככל שרלוונטי.`))
+      }
+      if (data.business > 0) {
+        documents.push(result.microEligible
+          ? line("נתוני עסק זעיר", "ריכוז מחזור העסקאות השנתי ואישור הדיווח השנתי המקוון והתשלום במערכת תיאומי המס.")
+          : line("נתוני העסק", "ריכוז מחזור העסקאות השנתי ואסמכתאות על ההכנסות וההוצאות של העסק."))
+      }
+      if (data.assets || data.foreignIncome) {
+        documents.push(line('דוחות ואישורים מחו"ל', 'דוחות יתרות שנתיים מחשבונות בנק וברוקרים זרים, אישורי הכנסות מחו"ל ואישורי ניכוי מס זר לצורך זיכוי.'))
+      }
+      if (data.transfer) {
+        documents.push(line('אסמכתאות להעברות לחו"ל', "אישורי העברות ותאריכיהן."))
+      }
+      if (data.residencyClaim) {
+        const title = data.taxYear === "2025" ? "מסמכי תושבות (טופס 1348)" : "מסמכי תושבות"
+        documents.push(line(title, 'טבלת ימי שהייה בישראל ובחו"ל, אישור תושבות מס במדינה הזרה (TRC) ומספר זיהוי לצורכי מס (TIN).'))
+      }
+      if (data.trust) {
+        documents.push(line("מסמכי נאמנות", "דוחות כספיים של הנאמנות, שטר הנאמנות ואסמכתאות על חלוקות או הכנסות (לטופסי 142 / 148 / 151ח)."))
+      }
+      fillList("client-documents", documents)
     }
 
     function render() {
@@ -1040,14 +1110,17 @@
       byId("approved").disabled = !finalStatus || result.missingSurtaxIncome
       byId("filing-field").hidden = pendingYear || status !== "required" || data.control || result.has6111
 
+      const filingIntroEnd = !result.manualDecision && result.guidance.length > 0 ? ":" : "."
       const verdicts = {
-        required: ["חייב בהגשת דוח שנתי", `על פי נתוני תיקך לשנת המס ${data.taxYear}, חלה עליך חובת הגשת דוח שנתי למס הכנסה.`],
+        required: ["חייב בהגשת דוח שנתי", `על פי נתוני תיקך לשנת המס ${data.taxYear}, חלה עליך חובת הגשת דוח שנתי למס הכנסה${filingIntroEnd}`],
         exempt: ["פטור מהגשת דוח שנתי", `על פי נתוני תיקך לשנת המס ${data.taxYear}, חל עליך פטור מהגשת דוח שנתי, בכפוף לעמידה בתנאי הפטור.`],
         pending: ["חובת ההגשה עדיין בבדיקה", `חובת ההגשה שלך לשנת ${data.taxYear} תיקבע לאחר השלמת הבדיקה בתיקך.`],
         missingResidency: ["פרטי התושבות טרם הושלמו", "לקביעת חובת הדיווח שלך נדרשים פרטי תושבות."],
         incomplete: ["פרטי ההכנסה טעונים תיקון", "לקביעת חובת הדיווח שלך נדרשים סכומי הכנסתך בשקלים."]
       }
       byId("recipient").textContent = data.client || "[שם הלקוח]"
+      byId("letter-advisor").textContent = data.advisor
+      byId("letter-advisor-details").hidden = !data.advisor
       byId("letter-year").textContent = data.taxYear
       byId("circular-number").hidden = pendingYear
       byId("title-tax-year").textContent = data.taxYear
@@ -1055,34 +1128,29 @@
       byId("verdict-note").textContent = verdicts[status][1]
 
       const deadline = finalStatus ? result.deadlines[0] : null
-      const forms = finalStatus ? result.forms.map(({ title, detail }) => line(`טופס ${title}`, detail)) : []
+      const forms = finalStatus ? result.forms : []
       const shortReport = status === "exempt" && result.microEligible
       byId("summary-deadline").textContent = deadline
         ? `${deadline.title}${shortReport ? " (דיווח מקוצר)" : ""}`
         : status === "exempt" ? "אין חובת הגשה" : "טרם נקבע"
-      byId("summary-forms").textContent = forms.length ? forms.map(({ title }) => title).join(", ")
+      byId("summary-forms").textContent = forms.length ? forms.map(({ title }) => `טופס ${title}`).join(", ")
         : shortReport ? "דיווח מקוצר לעסק זעיר" : status === "exempt" ? "אין טפסי דוח שנתי" : "טרם נקבעו"
 
       const missing = "הפרטים ייקבעו לאחר השלמת הבדיקה בתיקך."
       const noDeadline = status === "exempt" ? "במסגרת הפטור, אין עליך חובה להגיש דוח שנתי."
         : pendingYear && status === "required" ? "מועד ההגשה לשנת המס 2026 טרם עודכן במערכת." : missing
-      const noForm = shortReport ? "עליך להגיש דיווח מקוצר במסלול העסק הזעיר."
-        : status === "exempt" ? "במסגרת הפטור, אין בתיקך צורך בטופסי דוח שנתי."
-        : pendingYear && status === "required" ? "יש לאמת את הטפסים הנדרשים לשנת המס 2026 מול הנחיות רשות המסים." : missing
-      fillList("deadlines", deadline ? [deadline] : [line("", noDeadline)])
-      fillList("forms", forms.length ? forms : [line("", noForm)])
+      if (status === "required" && deadline) {
+        fillList("deadlines", [
+          line("מועד ההגשה החוקי:", `${deadline.title} (בהתאם להודעת רשות המסים מ-23.4.2026). ככל שתיקך נכלל בהסדר הארכות למייצגים של המשרד מול רשות המסים, נעדכן אותך במועד המעודכן לקראת ההגשה.`),
+          line("אופן ההגשה:", deadline.detail)
+        ], " ")
+      } else {
+        fillList("deadlines", deadline ? [deadline] : [line("", noDeadline)])
+      }
+      renderFilingDocuments(data, result, status)
       const noGuidance = pendingYear && finalStatus ? "סטטוס הדיווח לשנת המס 2026 נקבע על בסיס בדיקה מקצועית בתיקך."
         : finalStatus ? "בנסיבות תיקך לא זוהו חובות דיווח נוספות הנוגעות להנחיות אלו." : missing
       fillList("guidance", data.residency && result.guidance.length ? result.guidance : [line("", noGuidance)])
-      byId("deadline-note").hidden = pendingYear || status !== "required"
-
-      const documents = []
-      if (status === "required" && data.salary > 0) documents.push("טופסי 106 ואישורי מימוש או ניכוי בגין הקצאות מניות, ככל שהיו")
-      if (status === "required" && data.assets) documents.push("אישורים על יתרות בחו״ל ושווי נכסי החוץ")
-      if (status === "required" && data.transfer) documents.push("אסמכתאות ותאריכים של ההעברות לחו״ל")
-      if (status === "required" && (data.capital > 0 || data.securitiesTurnover)) documents.push("טופסי 867 או דוחות מסחר מתאימים")
-      byId("preparation").hidden = documents.length === 0
-      byId("preparation").textContent = documents.length ? `לקראת הגשת הדוח שלך, כדאי להכין ${documentList.format(documents)}.` : ""
 
       byId("print").disabled = !canExport
       byId("open-email").disabled = !canExport || !validEmail || !data.advisor
