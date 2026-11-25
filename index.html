@@ -446,8 +446,11 @@
       .summary-details { grid-template-columns: minmax(0, 1fr) }
       .paper-footer { margin-top: 3px }
     }
-    @media screen and (max-width: 480px), screen and (min-width: 721px) and (max-width: 900px) {
+    @media screen and (max-width: 525px), screen and (min-width: 721px) {
       .tax-context-field { grid-column: 1 / -1 }
+    }
+    @media screen and (max-width: 300px) {
+      #residency { padding-inline-end: 23px }
     }
     /* Document padding takes the place of browser print margins. */
     @page { size: A4 }
@@ -558,8 +561,8 @@
               <select id="residency" required>
                 <option value="">יש לבחור סטטוס תושבות</option>
                 <option value="resident">תושב ישראל</option>
-                <option value="earlier">עולה חדש או תושב חוזר ותיק לפני 2026</option>
-                <option value="arrival">עולה חדש או תושב חוזר מ-2026</option>
+                <option value="earlier">עולה / תושב חוזר (לפני 2026)</option>
+                <option value="arrival">עולה / תושב חוזר (מ-2026)</option>
                 <option value="foreign">תושב חוץ</option>
               </select>
             </div>
